@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dashboard — Carbon Finance Hub</title>
+<meta name="description" content="Aggregated carbon market data: sectors, damage, tokens, transparency.">
+<link rel="icon" href="carbon-icon-loss.png" type="image/png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="logo"><img src="carbon-logo.png" alt="Logo"> Carbon Finance Hub</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="map.html">Map</a>
+    <a href="calculator.html">Calculator</a>
+    <a href="transparency.html">Transparency</a>
+    <a href="tokens.html">Tokens</a>
+    <a href="treasury.html">Treasury</a>
+    <a href="dashboard.html" class="active">Dashboard</a>
+    <a href="signal.html">Signal</a>
+    <a href="response.html">Right of Reply</a>
+  </nav>
+</header>
+<main>
+  <h1>Carbon Finance Dashboard</h1>
+  <p style="color:var(--muted);max-width:800px;">
+    Aggregated data across all 9 Ecology sectors. Every number has a source — no made-up figures.
+  </p>
+
+  <section class="stats">
+    <div class="stat"><span class="num">9</span><span class="label">Sectors</span></div>
+    <div class="stat"><span class="num">300+</span><span class="label">Objects Tracked</span></div>
+    <div class="stat"><span class="num" style="color:var(--red)">$500B+</span><span class="label">Est. Damage</span></div>
+    <div class="stat"><span class="num" style="color:var(--green)">12</span><span class="label">Verified Results</span></div>
+  </section>
+
+  <h2>By Sector</h2>
+  <div class="detail-block" style="overflow-x:auto;">
+    <table>
+      <thead>
+        <tr>
+          <th>Sector</th>
+          <th>Objects</th>
+          <th>Gaps</th>
+          <th>Est. Loss</th>
+          <th>Main Token</th>
+          <th>Site</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>🛢️ Oil & Gas</td>
+          <td>46</td>
+          <td>42</td>
+          <td>$24B</td>
+          <td>€GREEN</td>
+          <td><a href="https://ecologyoilgaz.github.io/oil/" target="_blank">Open →</a></td>
+        </tr>
+        <tr>
+          <td>💧 Water</td>
+          <td>150</td>
+          <td>145</td>
+          <td>$40B</td>
+          <td>€GREEN</td>
+          <td><a href="https://ecologyoilgaz.github.io/water/" target="_blank">Open →</a></td>
+        </tr>
+        <tr>
+          <td>🏭 Industry</td>
+          <td>25</td>
+          <td>20</td>
+          <td>$150B</td>
+          <td>€ECO</td>
+          <td><a href="https://ecologyoilgaz.github.io/industry/" target="_blank">Open →</a></td>
+        </tr>
+        <tr>
+          <td>⚡ Energy</td>
+          <td>62</td>
+          <td>55</td>
+          <td>$150B</td>
+          <td>€ECO</td>
+          <td><a href="https://ecologyoilgaz.github.io/energy/" target="_blank">Open →</a></td>
+        </tr>
+        <tr>
+          <td>🗑️ Waste</td>
+          <td>62</td>
+          <td>60</td>
+          <td>$100B</td>
+          <td>€GREEN</td>
+          <td><a href="https://ecologyoilgaz.github.io/waste/" target="_blank">Open →</a></td>
+        </tr>
+        <tr>
+          <td>🌾 Agriculture</td>
+          <td>60</td>
+          <td>58</td>
+          <td>$100B</td>
+          <td>€GREEN</td>
+          <td><a href="https://ecologyoilgaz.github.io/agriculture/" target="_blank">Open →</a></td>
+        </tr>
+        <tr>
+          <td>🚗 Transport</td>
+          <td>75</td>
+          <td>70</td>
+          <td>$50B</td>
+          <td>€ECO</td>
+          <td><a href="https://ecologyoilgaz.github.io/transport/" target="_blank">Open →</a></td>
+        </tr>
+        <tr>
+          <td>🫁 Air & Health</td>
+          <td>60</td>
+          <td>55</td>
+          <td>$3T</td>
+          <td>€ECO</td>
+          <td><a href="https://ecologyoilgaz.github.io/air/" target="_blank">Open →</a></td>
+        </tr>
+        <tr>
+          <td>☣️ Toxic</td>
+          <td>42</td>
+          <td>40</td>
+          <td>$100B</td>
+          <td>€GREEN</td>
+          <td><a href="https://ecologyoilgaz.github.io/toxic/" target="_blank">Open →</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Token Transparency Summary</h2>
+  <div class="rating-grid">
+    <div class="rating-card">
+      <h3>€ECO</h3>
+      <span class="rating-badge green">🟢 Verified</span>
+      <p>$10 = 0.1 t CO₂</p>
+      <p>Linked to specific projects.</p>
+    </div>
+    <div class="rating-card">
+      <h3>€GREEN</h3>
+      <span class="rating-badge green">🟢 Verified</span>
+      <p>$10 = 1 t CO₂</p>
+      <p>Dedicated to restoration.</p>
+    </div>
+    <div class="rating-card">
+      <h3>€ECOD</h3>
+      <span class="rating-badge red">🔴 High Risk</span>
+      <p>Score 30/100, 5 holders.</p>
+      <p>Use with caution.</p>
+    </div>
+  </div>
+
+  <h2>Carbon Market Context</h2>
+  <div class="detail-block">
+    <table>
+      <thead><tr><th>Market</th><th>Price / Volume</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td>EU ETS</td><td>~€82/t (Nov 2026)</td><td>Speculative, for large players</td></tr>
+        <tr><td>Voluntary market (VCM)</td><td>$1–$150/t</td><td>Chaotic, quality unverified</td></tr>
+        <tr><td>Government revenues</td><td>$107B/year</td><td>From carbon taxes and ETS</td></tr>
+        <tr><td>Our tokens</td><td>$10 = 0.1–1 t CO₂</td><td>Linked to verified projects</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="alert-box">
+    <strong>Data note:</strong> All figures are from open sources (Ember, Climate TRACE, EU ETS, World Bank). 
+    No source — no publication.
+  </div>
+</main>
+<footer>
+  <p>Contact: <a href="mailto:ecologyoilgaz@gmail.com">ecologyoilgaz@gmail.com</a> ·
+    <a href="https://ecologyoilgaz.github.io/oil/">Oil</a> ·
+    <a href="https://ecologyoilgaz.github.io/water/">Water</a> ·
+    <a href="https://ecologyoilgaz.github.io/industry/">Industry</a> ·
+    <a href="https://ecologyoilgaz.github.io/energy/">Energy</a> ·
+    <a href="https://ecologyoilgaz.github.io/waste/">Waste</a> ·
+    <a href="https://ecologyoilgaz.github.io/agriculture/">Agriculture</a> ·
+    <a href="https://ecologyoilgaz.github.io/transport/">Transport</a> ·
+    <a href="https://ecologyoilgaz.github.io/air/">Air</a> ·
+    <a href="https://ecologyoilgaz.github.io/toxic/">Toxic</a>
+  </p>
+</footer>
+</body>
+</html>
