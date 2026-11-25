@@ -189,6 +189,39 @@
     color: var(--muted);
     margin-top: 8px;
   }
+
+  /* === EST. LOSS BIG BLOCK === */
+  .loss-block {
+    margin: 30px 0 10px;
+    padding: 30px 24px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(255,77,77,0.12), rgba(255,215,0,0.08));
+    border: 1px solid rgba(255,77,77,0.4);
+    text-align: center;
+    box-shadow: 0 0 30px rgba(255,77,77,0.15);
+  }
+  .loss-block .loss-title {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+  }
+  .loss-block .loss-value {
+    font-size: 42px;
+    font-weight: 900;
+    font-family: 'SF Mono', monospace;
+    color: #FF4D4D;
+    text-shadow: 0 0 25px rgba(255,77,77,0.5);
+    line-height: 1.2;
+  }
+  .loss-block .loss-sub {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 10px;
+    letter-spacing: 1px;
+  }
+  body.day-mode .loss-block .loss-value { color: #C62828; text-shadow: 0 0 20px rgba(198,40,40,0.3); }
 </style>
 </head>
 <body>
@@ -257,14 +290,17 @@
         <span class="lbl">Objects Tracked</span>
       </div>
       <div class="counter-item">
-        <span class="val" id="c-loss">—</span>
-        <span class="lbl">Est. Loss (USD)</span>
-      </div>
-      <div class="counter-item">
         <span class="val" id="c-verified">—</span>
         <span class="lbl">Verified Results</span>
       </div>
     </div>
+  </section>
+
+  <!-- EST. LOSS BIG SEPARATE BLOCK -->
+  <section class="loss-block">
+    <div class="loss-title">💰 Estimated Environmental Loss (USD)</div>
+    <div class="loss-value" id="c-loss">—</div>
+    <div class="loss-sub">Growing by +$1 every second · Live counter</div>
   </section>
 
   <!-- LIVE TICKER -->
