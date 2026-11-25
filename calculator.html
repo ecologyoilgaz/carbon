@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Carbon Calculator — Carbon Finance Hub</title>
+<meta name="description" content="Calculate how many €ECO or €GREEN tokens you need to offset your CO₂ emissions.">
+<link rel="icon" href="carbon-icon-loss.png" type="image/png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="logo"><img src="carbon-logo.png" alt="Logo"> Carbon Finance Hub</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="calculator.html" class="active">Calculator</a>
+    <a href="transparency.html">Transparency</a>
+    <a href="tokens.html">Tokens</a>
+    <a href="treasury.html">Treasury</a>
+  </nav>
+</header>
+<main>
+  <h1>Carbon Calculator</h1>
+  <p style="color:var(--muted);max-width:700px;">
+    Calculate how many €ECO or €GREEN tokens you need to offset your CO₂ emissions. 
+    Each token is tied to a verified project — no fake offsets.
+  </p>
+
+  <div style="text-align:center;margin:30px 0;">
+    <img src="carbon-calculator.png" alt="Calculator" style="max-width:200px;">
+  </div>
+
+  <div class="calculator">
+    <h2>Calculate Your Offset</h2>
+    <div class="calc-row">
+      <div class="calc-field">
+        <label>Tonnes of CO₂</label>
+        <input type="number" id="co2Input" value="10" min="0.1" step="0.1">
+      </div>
+      <div class="calc-field">
+        <label>Token</label>
+        <select id="tokenSelect">
+          <option value="eco">€ECO ($10 = 0.1 t CO₂)</option>
+          <option value="green">€GREEN ($10 = 1 t CO₂)</option>
+          <option value="ecod">€ECOD (high risk)</option>
+        </select>
+      </div>
+      <button class="btn-primary" onclick="calculate()">Calculate →</button>
+    </div>
+    <div class="calc-result" id="calcResult" style="display:none;">
+      <div class="sub">You need:</div>
+      <span class="big" id="calcAmount">—</span>
+      <div class="sub" id="calcDetail">—</div>
+    </div>
+  </div>
+
+  <div class="detail-block" style="margin-top:30px;">
+    <h3>How Tokens Work</h3>
+    <ul style="margin-left:20px;line-height:2;">
+      <li><strong>€ECO:</strong> universal receipt. $10 = 0.1 t CO₂. Linked to any project.</li>
+      <li><strong>€GREEN:</strong> restoration token. $10 = 1 t CO₂. Linked to ecosystem projects.</li>
+      <li><strong>€ECOD:</strong> speculative RWA token. High risk. Not recommended as main tool.</li>
+    </ul>
+  </div>
+
+  <div class="alert-box">
+    <strong>Important:</strong> Tokens are not investments. They are digital receipts for contributions to verified projects. 
+    No profit-sharing, no equity.
+  </div>
+
+  <section style="text-align:center;margin-top:40px;">
+    <a href="tokens.html" class="btn-primary">View All Tokens →</a>
+  </section>
+</main>
+<footer>
+  <p>Contact: <a href="mailto:ecologyoilgaz@gmail.com">ecologyoilgaz@gmail.com</a> ·
+    <a href="https://ecologyoilgaz.github.io/oil/">Oil</a> ·
+    <a href="https://ecologyoilgaz.github.io/water/">Water</a> ·
+    <a href="https://ecologyoilgaz.github.io/industry/">Industry</a> ·
+    <a href="https://ecologyoilgaz.github.io/energy/">Energy</a> ·
+    <a href="https://ecologyoilgaz.github.io/waste/">Waste</a> ·
+    <a href="https://ecologyoilgaz.github.io/agriculture/">Agriculture</a> ·
+    <a href="https://ecologyoilgaz.github.io/transport/">Transport</a> ·
+    <a href="https://ecologyoilgaz.github.io/air/">Air</a> ·
+    <a href="https://ecologyoilgaz.github.io/toxic/">Toxic</a>
+  </p>
+</footer>
+<script>
+function calculate() {
+  const co2 = parseFloat(document.getElementById('co2Input').value) || 0;
+  const token = document.getElementById('tokenSelect').value;
+  let amount, detail;
+  if (token === 'eco') {
+    amount = co2 * 10;
+    detail = `${co2} t CO₂ × 10 €ECO/t = ${amount.toLocaleString()} €ECO (≈ $${(amount * 10).toLocaleString()})`;
+  } else if (token === 'green') {
+    amount = co2 * 1;
+    detail = `${co2} t CO₂ × 1 €GREEN/t = ${amount.toLocaleString()} €GREEN (≈ $${(amount * 10).toLocaleString()})`;
+  } else {
+    amount = co2 * 1;
+    detail = `${co2} t CO₂ × 1 €ECOD/t = ${amount.toLocaleString()} €ECOD (⚠️ high risk)`;
+  }
+  document.getElementById('calcAmount').textContent = amount.toLocaleString() + ' ' + (token === 'eco' ? '€ECO' : token === 'green' ? '€GREEN' : '€ECOD');
+  document.getElementById('calcDetail').textContent = detail;
+  document.getElementById('calcResult').style.display = 'block';
+}
+</script>
+</body>
+</html>
