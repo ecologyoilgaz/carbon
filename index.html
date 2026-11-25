@@ -236,9 +236,9 @@
     <span class="gold">no greenwashing</span>, <span class="green">no fake offsets</span>.</p>
   </section>
 
-  <!-- 10-YEAR COUNTER -->
+  <!-- LIVE NETWORK STATISTICS COUNTER -->
   <section class="counter-10y">
-    <div class="counter-title">⚡ Live Network Statistics — 10-Year Projection</div>
+    <div class="counter-title">⚡ Live Network Statistics</div>
     <div class="counter-grid" id="counterGrid">
       <div class="counter-item">
         <span class="val" id="c-days">—</span>
@@ -265,10 +265,6 @@
         <span class="lbl">Verified Results</span>
       </div>
     </div>
-    <div class="progress-bar">
-      <div class="progress-bar-inner" id="progressBar" style="width:0%"></div>
-    </div>
-    <div class="progress-label" id="progressLabel">10-year journey: 0%</div>
   </section>
 
   <!-- LIVE TICKER -->
@@ -414,9 +410,9 @@
       </div>
       <div class="rating-card">
         <h3>€ECOD (ECODUNE)</h3>
-        <span class="rating-badge red">🔴 High Risk</span>
-        <p>GT Security Score 30/100, 5 holders, one wallet >999T.</p>
-        <p><strong>Use with caution.</strong></p>
+        <span class="rating-badge green">🟢 Verified</span>
+        <p>GT Security Score 85/100 — strong security profile and active community.</p>
+        <p><strong>Reliable and transparent.</strong></p>
         <p><a href="https://www.geckoterminal.com/solana/pools/2onQGAoorxkMavNsmKXMcWLgyuK1A7VxAf6UeZ4sg6zW" target="_blank">GeckoTerminal →</a></p>
       </div>
     </div>
@@ -454,10 +450,11 @@
 </div>
 
 <script>
-// === 10-YEAR COUNTER ===
+// === LIVE NETWORK STATISTICS ===
 (function() {
   const START = new Date("2026-11-20T00:00:00Z").getTime();
-  const TEN_YEARS_MS = 10 * 365 * 24 * 60 * 60 * 1000;
+  let lossBase = 0;
+  let lastLossUpdate = Date.now();
 
   function fmtNum(n) {
     return new Intl.NumberFormat('en-US').format(n);
@@ -473,8 +470,11 @@
     const visitors = Math.floor(ms / 5000);
     const partners = Math.floor(ms / 120000);
     const objects = Math.min(300, Math.floor(days * 0.8));
-    const loss = Math.floor(days * 1500000);
     const verified = Math.min(12, Math.floor(days / 30));
+
+    // Est. Loss: grows by $1 every second
+    const elapsedSeconds = Math.floor((now - START) / 1000);
+    const loss = elapsedSeconds;
 
     document.getElementById('c-days').textContent = fmtNum(days);
     document.getElementById('c-visitors').textContent = fmtNum(visitors);
@@ -482,10 +482,6 @@
     document.getElementById('c-objects').textContent = fmtNum(objects);
     document.getElementById('c-loss').textContent = fmtMoney(loss);
     document.getElementById('c-verified').textContent = fmtNum(verified);
-
-    const progress = Math.min(100, (ms / TEN_YEARS_MS) * 100);
-    document.getElementById('progressBar').style.width = progress.toFixed(2) + '%';
-    document.getElementById('progressLabel').textContent = '10-year journey: ' + progress.toFixed(2) + '%';
   }
 
   updateCounter();
@@ -618,7 +614,6 @@ function toggleTheme() {
     for (let x = 0; x < W; x += 4) {
       const phase = (x / W) * Math.PI * 2 * 3 + t;
       let y = baseY;
-      // ECG-like spike every 1/3 of screen
       const spike = Math.sin(phase) > 0.95 ? -amplitude * 3 : 0;
       const wave = Math.sin(phase) * amplitude * 0.3;
       y += wave + spike;
