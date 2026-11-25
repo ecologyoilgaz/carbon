@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Map — Carbon Finance Hub</title>
+<meta name="description" content="Global map of carbon projects and verified RWA sites.">
+<link rel="icon" href="carbon-icon-loss.png" type="image/png">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="logo"><img src="carbon-logo.png" alt="Logo"> Carbon Finance Hub</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="map.html" class="active">Map</a>
+    <a href="calculator.html">Calculator</a>
+    <a href="transparency.html">Transparency</a>
+    <a href="tokens.html">Tokens</a>
+    <a href="treasury.html">Treasury</a>
+    <a href="signal.html">Signal</a>
+    <a href="response.html">Right of Reply</a>
+  </nav>
+</header>
+<main>
+  <h1>Global Carbon Project Map</h1>
+  <p style="color:var(--muted);max-width:800px;">
+    This map aggregates verified carbon projects from all 9 Ecology sectors. 
+    Each point is a project with a status: 🔴 gap confirmed / 🟢 verified / ⚫ pending.
+  </p>
+
+  <div class="legend">
+    <span><i class="dot red"></i> Gap confirmed</span>
+    <span><i class="dot green"></i> Verified</span>
+    <span><i class="dot gray"></i> Pending</span>
+  </div>
+
+  <div id="map" style="height:70vh;border-radius:16px;border:1px solid var(--border);background:#0a0a0a;"></div>
+
+  <section class="detail-block" style="margin-top:30px;">
+    <h2>Sector Links</h2>
+    <p style="margin-bottom:15px;">Each sector has its own map with full details:</p>
+    <div class="grid">
+      <a href="https://ecologyoilgaz.github.io/oil/map.html" target="_blank" class="sector-card">
+        <div class="sector-icon">🛢️</div>
+        <div class="sector-name">Oil & Gas Map</div>
+        <div class="sector-desc">Flaring, methane, spills.</div>
+        <div class="sector-link">Open Map →</div>
+      </a>
+      <a href="https://ecologyoilgaz.github.io/water/map.html" target="_blank" class="sector-card">
+        <div class="sector-icon">💧</div>
+        <div class="sector-name">Water Map</div>
+        <div class="sector-desc">Pollution, depletion.</div>
+        <div class="sector-link">Open Map →</div>
+      </a>
+      <a href="https://ecologyoilgaz.github.io/industry/map.html" target="_blank" class="sector-card">
+        <div class="sector-icon">🏭</div>
+        <div class="sector-name">Industry Map</div>
+        <div class="sector-desc">Cement, steel, mining.</div>
+        <div class="sector-link">Open Map →</div>
+      </a>
+      <a href="https://ecologyoilgaz.github.io/energy/map.html" target="_blank" class="sector-card">
+        <div class="sector-icon">⚡</div>
+        <div class="sector-name">Energy Map</div>
+        <div class="sector-desc">Coal, gas, hydro, nuclear.</div>
+        <div class="sector-link">Open Map →</div>
+      </a>
+      <a href="https://ecologyoilgaz.github.io/waste/map.html" target="_blank" class="sector-card">
+        <div class="sector-icon">🗑️</div>
+        <div class="sector-name">Waste Map</div>
+        <div class="sector-desc">Landfills, e-waste, plastic.</div>
+        <div class="sector-link">Open Map →</div>
+      </a>
+      <a href="https://ecologyoilgaz.github.io/agriculture/map.html" target="_blank" class="sector-card">
+        <div class="sector-icon">🌾</div>
+        <div class="sector-name">Agriculture Map</div>
+        <div class="sector-desc">Methane, soil, pesticides.</div>
+        <div class="sector-link">Open Map →</div>
+      </a>
+      <a href="https://ecologyoilgaz.github.io/transport/map.html" target="_blank" class="sector-card">
+        <div class="sector-icon">🚗</div>
+        <div class="sector-name">Transport Map</div>
+        <div class="sector-desc">NO₂, PM2.5, ports, airports.</div>
+        <div class="sector-link">Open Map →</div>
+      </a>
+      <a href="https://ecologyoilgaz.github.io/air/map.html" target="_blank" class="sector-card">
+        <div class="sector-icon">🫁</div>
+        <div class="sector-name">Air & Health Map</div>
+        <div class="sector-desc">PM2.5, NO₂, O₃.</div>
+        <div class="sector-link">Open Map →</div>
+      </a>
+      <a href="https://ecologyoilgaz.github.io/toxic/map.html" target="_blank" class="sector-card">
+        <div class="sector-icon">☣️</div>
+        <div class="sector-name">Toxic Map</div>
+        <div class="sector-desc">POPs, PFAS, mercury, pesticides.</div>
+        <div class="sector-link">Open Map →</div>
+      </a>
+    </div>
+  </section>
+</main>
+<footer>
+  <p>Contact: <a href="mailto:ecologyoilgaz@gmail.com">ecologyoilgaz@gmail.com</a> ·
+    <a href="https://ecologyoilgaz.github.io/oil/">Oil</a> ·
+    <a href="https://ecologyoilgaz.github.io/water/">Water</a> ·
+    <a href="https://ecologyoilgaz.github.io/industry/">Industry</a> ·
+    <a href="https://ecologyoilgaz.github.io/energy/">Energy</a> ·
+    <a href="https://ecologyoilgaz.github.io/waste/">Waste</a> ·
+    <a href="https://ecologyoilgaz.github.io/agriculture/">Agriculture</a> ·
+    <a href="https://ecologyoilgaz.github.io/transport/">Transport</a> ·
+    <a href="https://ecologyoilgaz.github.io/air/">Air</a> ·
+    <a href="https://ecologyoilgaz.github.io/toxic/">Toxic</a>
+  </p>
+</footer>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+async function initMap() {
+  const map = L.map('map').setView([25, 15], 2);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap'
+  }).addTo(map);
+
+  // Carbon projects: sample aggregate points from all sectors
+  const projects = [
+    // Oil & Gas
+    {lat: 4.8, lon: 7.0, title: 'Gas Flaring — Niger Delta', sector: 'Oil', status: 'red', url: 'https://ecologyoilgaz.github.io/oil/object.html?id=flare-nigeria'},
+    {lat: 40.0, lon: 52.0, title: 'Methane Leak — Turkmenistan', sector: 'Oil', status: 'red', url: 'https://ecologyoilgaz.github.io/oil/object.html?id=methane-turkmenistan'},
+    // Water
+    {lat: 45.0, lon: 59.0, title: 'Aral Sea Desiccation', sector: 'Water', status: 'red', url: 'https://ecologyoilgaz.github.io/water/object.html?id=aral-sea'},
+    {lat: 41.2, lon: 69.2, title: 'Water Network Decay — Uzbekistan', sector: 'Water', status: 'red', url: 'https://ecologyoilgaz.github.io/water/object.html?id=uzbekistan-pipe-crisis'},
+    // Industry
+    {lat: 69.36, lon: 88.13, title: 'Norilsk Nickel Smelter', sector: 'Industry', status: 'red', url: 'https://ecologyoilgaz.github.io/industry/object.html?id=norilsk-nickel'},
+    {lat: 51.87, lon: 75.30, title: 'Ekibastuz GRES-1', sector: 'Energy', status: 'red', url: 'https://ecologyoilgaz.github.io/energy/object.html?id=ekibastuz-gres-1'},
+    // Waste
+    {lat: 19.07, lon: 72.93, title: 'Deonar Landfill — Mumbai', sector: 'Waste', status: 'red', url: 'https://ecologyoilgaz.github.io/waste/object.html?id=deonar-mumbai'},
+    {lat: 5.55, lon: -0.23, title: 'Agbogbloshie E-Waste', sector: 'Waste', status: 'red', url: 'https://ecologyoilgaz.github.io/waste/object.html?id=accra-e-waste'},
+    // Agriculture
+    {lat: 45.0, lon: 59.0, title: 'Aral Sea Cotton Legacy', sector: 'Agriculture', status: 'red', url: 'https://ecologyoilgaz.github.io/agriculture/object.html?id=aral-sea-cotton'},
+    {lat: 40.38, lon: 71.78, title: 'Fergana Pesticides', sector: 'Agriculture', status: 'red', url: 'https://ecologyoilgaz.github.io/agriculture/object.html?id=fergana-pesticides'},
+    // Transport
+    {lat: 43.24, lon: 76.89, title: 'Almaty Transport & Smog', sector: 'Transport', status: 'red', url: 'https://ecologyoilgaz.github.io/transport/report-transport-kz.html'},
+    {lat: 42.87, lon: 74.59, title: 'Bishkek Transport & Smog', sector: 'Transport', status: 'red', url: 'https://ecologyoilgaz.github.io/transport/report-transport-kg.html'},
+    // Air
+    {lat: 41.30, lon: 69.24, title: 'Tashkent Air Quality', sector: 'Air', status: 'red', url: 'https://ecologyoilgaz.github.io/air/report-health-uz.html'},
+    {lat: 42.87, lon: 74.59, title: 'Bishkek Winter Smog', sector: 'Air', status: 'red', url: 'https://ecologyoilgaz.github.io/air/report-health-kg.html'},
+    // Toxic
+    {lat: 39.93, lon: 71.33, title: 'Khaidarkan Mercury Mine', sector: 'Toxic', status: 'red', url: 'https://ecologyoilgaz.github.io/toxic/report-chemicals-kg.html'},
+    {lat: 37.85, lon: 68.78, title: 'Tajikistan Pesticides', sector: 'Toxic', status: 'red', url: 'https://ecologyoilgaz.github.io/toxic/report-chemicals-tj.html'}
+  ];
+
+  projects.forEach(p => {
+    const color = p.status === 'red' ? '#FF4D4D' : p.status === 'green' ? '#4DFF88' : '#888888';
+    L.circleMarker([p.lat, p.lon], {radius: 9, color: color, fillOpacity: 0.85, weight: 2})
+      .addTo(map)
+      .bindPopup(`<b>${p.title}</b><br><em>${p.sector}</em><br><a href="${p.url}" target="_blank">Details →</a>`);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', initMap);
+</script>
+</body>
+</html>
