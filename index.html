@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Carbon Finance Hub — Ecology Network</title>
+<meta name="description" content="Umbrella site connecting 9 Ecology Maps into one financial ecosystem. €ECO, €GREEN, RWA tokens, carbon market, EU ETS, verified climate projects.">
+<link rel="icon" href="carbon-icon.png" type="image/png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="logo"><img src="carbon-logo.png" alt="Logo"> Carbon Finance Hub</div>
+  <nav>
+    <a href="index.html" class="active">Home</a>
+    <a href="calculator.html">Calculator</a>
+    <a href="transparency.html">Transparency</a>
+    <a href="tokens.html">Tokens</a>
+    <a href="treasury.html">Treasury</a>
+    <a href="#sectors">All Sectors</a>
+  </nav>
+</header>
+<main>
+  <section class="hero">
+    <h1>Carbon Finance <span class="gold">Hub</span></h1>
+    <p>The umbrella site connecting all 9 Ecology Maps into one financial ecosystem. 
+    We turn verified environmental projects into transparent RWA tokens — 
+    <span class="gold">no greenwashing</span>, <span class="green">no fake offsets</span>.</p>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="stat"><span class="num">9</span><span class="label">Sectors</span></div>
+    <div class="stat"><span class="num">300+</span><span class="label">Objects Tracked</span></div>
+    <div class="stat"><span class="num">$500B+</span><span class="label">Est. Damage</span></div>
+    <div class="stat"><span class="num">3</span><span class="label">RWA Tokens</span></div>
+  </section>
+
+  <!-- SECTORS (links to all 9 sites) -->
+  <section id="sectors">
+    <h2>All Ecology Sectors</h2>
+    <p style="color:var(--muted);margin-bottom:20px;">Each sector is a separate site with its own database, reports, and tokenized projects.</p>
+    <div class="grid">
+      <a href="https://ecologyoilgaz.github.io/oil/" class="sector-card" target="_blank">
+        <div class="sector-icon">🛢️</div>
+        <div class="sector-name">Oil & Gas</div>
+        <div class="sector-desc">Flaring, methane leaks, spills, fake reclamation.</div>
+        <div class="sector-link">Visit →</div>
+      </a>
+      <a href="https://ecologyoilgaz.github.io/water/" class="sector-card" target="_blank">
+        <div class="sector-icon">💧</div>
+        <div class="sector-name">Water</div>
+        <div class="sector-desc">Pollution, depletion, pipe crisis, contamination.</div>
+        <div class="sector-link">Visit →</div>
+      </a>
+      <a href="https://ecologyoilgaz.github.io/industry/" class="sector-card" target="_blank">
+        <div class="sector-icon">🏭</div>
+        <div class="sector-name">Industry</div>
+        <div class="sector-desc">Cement, steel, mining, toxic waste.</div>
+        <div class="sector-link">Visit →</div>
+      </a>
+      <a href="https://ecologyoilgaz.github.io/energy/" class="sector-card" target="_blank">
+        <div class="sector-icon">⚡</div>
+        <div class="sector-name">Energy</div>
+        <div class="sector-desc">Coal, gas, hydro, nuclear, carbon intensity.</div>
+        <div class="sector-link">Visit →</div>
+      </a>
+      <a href="https://ecologyoilgaz.github.io/waste/" class="sector-card" target="_blank">
+        <div class="sector-icon">🗑️</div>
+        <div class="sector-name">Waste</div>
+        <div class="sector-desc">Landfills, e-waste, plastic exports, methane.</div>
+        <div class="sector-link">Visit →</div>
+      </a>
+      <a href="https://ecologyoilgaz.github.io/agriculture/" class="sector-card" target="_blank">
+        <div class="sector-icon">🌾</div>
+        <div class="sector-name">Agriculture</div>
+        <div class="sector-desc">Methane, N₂O, soil, cotton, pesticides.</div>
+        <div class="sector-link">Visit →</div>
+      </a>
+      <a href="https://ecologyoilgaz.github.io/transport/" class="sector-card" target="_blank">
+        <div class="sector-icon">🚗</div>
+        <div class="sector-name">Transport</div>
+        <div class="sector-desc">NO₂, PM2.5, ports, airports, urban smog.</div>
+        <div class="sector-link">Visit →</div>
+      </a>
+      <a href="https://ecologyoilgaz.github.io/air/" class="sector-card" target="_blank">
+        <div class="sector-icon">🫁</div>
+        <div class="sector-name">Health & Air</div>
+        <div class="sector-desc">PM2.5, NO₂, O₃, health impacts.</div>
+        <div class="sector-link">Visit →</div>
+      </a>
+      <a href="https://ecologyoilgaz.github.io/toxic/" class="sector-card" target="_blank">
+        <div class="sector-icon">☣️</div>
+        <div class="sector-name">Chemicals & Toxic</div>
+        <div class="sector-desc">POPs, PFAS, mercury, pesticides, radioactive.</div>
+        <div class="sector-link">Visit →</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- CALCULATOR -->
+  <section class="calculator">
+    <h2>Carbon Calculator</h2>
+    <p style="color:var(--muted);margin-bottom:20px;">How much €ECO do you need to close X tonnes of CO₂?</p>
+    <div class="calc-row">
+      <div class="calc-field">
+        <label>Tonnes of CO₂</label>
+        <input type="number" id="co2Input" value="10" min="1" step="1">
+      </div>
+      <div class="calc-field">
+        <label>Token</label>
+        <select id="tokenSelect">
+          <option value="eco">€ECO ($10 / 0.1 t)</option>
+          <option value="green">€GREEN ($10 / 1 t)</option>
+        </select>
+      </div>
+      <button class="btn-primary" onclick="calculate()">Calculate →</button>
+    </div>
+    <div class="calc-result" id="calcResult" style="display:none;">
+      <div class="sub">You need:</div>
+      <span class="big" id="calcAmount">—</span>
+      <div class="sub" id="calcDetail">—</div>
+    </div>
+  </section>
+
+  <!-- TOKEN TRANSPARENCY RATING -->
+  <section>
+    <h2>Token Transparency Rating</h2>
+    <p style="color:var(--muted);margin-bottom:20px;">Each token is rated by how verifiable its projects are.</p>
+    <div class="rating-grid">
+      <div class="rating-card">
+        <h3>€ECO</h3>
+        <span class="rating-badge green">🟢 Verified</span>
+        <p>Linked to specific projects, satellite verification required.</p>
+        <p><strong>Peg:</strong> $10 = 0.1 t CO₂</p>
+        <p><a href="https://solscan.io/token/74Zc9ntjagHLYscczhfk5eWfUjcye8vqBWXWaGpLSnFp" target="_blank">Solscan →</a></p>
+      </div>
+      <div class="rating-card">
+        <h3>€GREEN</h3>
+        <span class="rating-badge green">🟢 Verified</span>
+        <p>Dedicated to ecosystem restoration and clean air.</p>
+        <p><strong>Peg:</strong> $10 = 1 t CO₂</p>
+        <p><a href="https://solscan.io/token/2prcusSFrxNQ85yR44UegSGcfuTYHy17cTGWnuqD1Hke" target="_blank">Solscan →</a></p>
+      </div>
+      <div class="rating-card">
+        <h3>€ECOD (ECODUNE)</h3>
+        <span class="rating-badge red">🔴 High Risk</span>
+        <p>GT Security Score 30/100, 5 holders, one wallet >999T.</p>
+        <p><strong>Use with caution.</strong></p>
+        <p><a href="https://www.geckoterminal.com/solana/pools/2onQGAoorxkMavNsmKXMcWLgyuK1A7VxAf6UeZ4sg6zW" target="_blank">GeckoTerminal →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section>
+    <h2>How It Works</h2>
+    <div class="detail-block">
+      <ol style="margin-left:20px;line-height:2;">
+        <li><strong>Choose a project</strong> on any of the 9 sector sites.</li>
+        <li><strong>Send USDT</strong> to the Treasury with a memo (e.g., <code>ID: khaidarkan-mercury</code>).</li>
+        <li><strong>Receive €ECO or €GREEN</strong> as a digital receipt.</li>
+        <li><strong>Project executes</strong> and submits report (photo + GPS).</li>
+        <li><strong>Satellite verifies</strong> the impact (Sentinel-2, TROPOMI, etc.).</li>
+        <li><strong>Token becomes "Verified"</strong> — a permanent ESG certificate.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- CARBON MARKET CONTEXT -->
+  <section>
+    <h2>Carbon Market Context</h2>
+    <div class="detail-block">
+      <p><strong>EU ETS:</strong> ~€82/t (Nov 2026). Speculative, for large players only.</div>
+      <p><strong>Voluntary market (VCM):</strong> $1–$150/t, chaotic, quality unverified.</p>
+      <p><strong>Government revenues:</strong> $107B/year from carbon taxes and ETS.</p>
+      <div class="alert-box">
+        <strong>Key gap:</strong> Ordinary people cannot transparently "close" their CO₂. 
+        They buy cheap fake credits or do nothing. Our tokens fix this — each token is tied to a verified project.
+      </div>
+    </div>
+  </section>
+
+  <section style="text-align:center;margin-top:40px;">
+    <a href="tokens.html" class="btn-primary">View All Tokens & Pay →</a>
+  </section>
+</main>
+<footer>
+  <p>Contact: <a href="mailto:ecologyoilgaz@gmail.com">ecologyoilgaz@gmail.com</a> ·
+    <a href="https://ecologyoilgaz.github.io/oil/">Oil</a> ·
+    <a href="https://ecologyoilgaz.github.io/water/">Water</a> ·
+    <a href="https://ecologyoilgaz.github.io/industry/">Industry</a> ·
+    <a href="https://ecologyoilgaz.github.io/energy/">Energy</a> ·
+    <a href="https://ecologyoilgaz.github.io/waste/">Waste</a> ·
+    <a href="https://ecologyoilgaz.github.io/agriculture/">Agriculture</a> ·
+    <a href="https://ecologyoilgaz.github.io/transport/">Transport</a> ·
+    <a href="https://ecologyoilgaz.github.io/air/">Air</a> ·
+    <a href="https://ecologyoilgaz.github.io/toxic/">Toxic</a>
+  </p>
+</footer>
+<script>
+function calculate() {
+  const co2 = parseFloat(document.getElementById('co2Input').value) || 0;
+  const token = document.getElementById('tokenSelect').value;
+  let amount, detail;
+  if (token === 'eco') {
+    amount = co2 * 100; // 0.1 t per $10 => 1 t = $100 => 10 €ECO per t
+    detail = `${co2} t CO₂ × 10 €ECO/t = ${amount} €ECO (≈ $${(amount * 10).toLocaleString()})`;
+  } else {
+    amount = co2 * 1; // 1 t per €GREEN
+    detail = `${co2} t CO₂ × 1 €GREEN/t = ${amount} €GREEN (≈ $${(amount * 10).toLocaleString()})`;
+  }
+  document.getElementById('calcAmount').textContent = amount.toLocaleString() + ' ' + (token === 'eco' ? '€ECO' : '€GREEN');
+  document.getElementById('calcDetail').textContent = detail;
+  document.getElementById('calcResult').style.display = 'block';
+}
+</script>
+</body>
+</html>
