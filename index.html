@@ -453,8 +453,7 @@
 // === LIVE NETWORK STATISTICS ===
 (function() {
   const START = new Date("2026-11-20T00:00:00Z").getTime();
-  let lossBase = 0;
-  let lastLossUpdate = Date.now();
+  const LOSS_START = 7200300878; // $7,200,300,878 стартовая сумма
 
   function fmtNum(n) {
     return new Intl.NumberFormat('en-US').format(n);
@@ -472,9 +471,9 @@
     const objects = Math.min(300, Math.floor(days * 0.8));
     const verified = Math.min(12, Math.floor(days / 30));
 
-    // Est. Loss: grows by $1 every second
-    const elapsedSeconds = Math.floor((now - START) / 1000);
-    const loss = elapsedSeconds;
+    // Est. Loss: start at $7,200,300,878 and grow by $1 every second
+    const elapsedSeconds = Math.floor(ms / 1000);
+    const loss = LOSS_START + elapsedSeconds;
 
     document.getElementById('c-days').textContent = fmtNum(days);
     document.getElementById('c-visitors').textContent = fmtNum(visitors);
